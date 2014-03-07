@@ -13,8 +13,12 @@ def make_hash(number)
 
   while number > 0
     puts number
-    if number/100000 >=1
+    if number/100000 >= 1
+      if number % 100000 > 1000
       number_hash[convert_one(number/100000)] = "hundred"
+      else
+        number_hash[convert_one(number/100000)] = "hundred thousand"
+      end
       number = number % 100000
     elsif number/1000 >= 1
       if number/1000 > 20
@@ -63,5 +67,5 @@ def convert_two(number)
   return result
 end
 
- puts make_hash(175327)
+ puts make_hash(1100)
  puts num_to_words(175)
